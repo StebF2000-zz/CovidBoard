@@ -71,7 +71,8 @@ function addData(chart, label, data) {
 
 // Getting JSON data
 async function getAPIregion(date, region) {
-    const API_URL = 'https://api.covid19tracking.narrativa.com/api/' + date + '/country/' + region;
+    const API_URL = 'https://api.covid19tracking.narrativa.com/api/country/' + region + '?date_from=' +
+        date[0] + '&date_to=' + date[date.length - 1];
     return fetch(API_URL)
         .then(res => res.json());
 }
@@ -94,18 +95,21 @@ async function getlastweek(region) {
         days.unshift(today);
     }
 
-    for (let i = 0; i < days.length; i++) {
-        const data = await getAPIregion(days[i], region);
-        Object.entries(data.dates[days[i]].countries).forEach(country => {
+
+    const data = await getAPIregion(days, region);
+
+    Object.entries(data.dates).forEach(date => {
+        Object.entries(date[1].countries).forEach(country => {
             const pair = {
                 'Positives': country[1].today_new_confirmed,
                 'Deaths': country[1].today_new_deaths,
                 'Recovered': country[1].today_new_recovered,
                 'Hospitalized': country[1].today_new_open_cases
             };
-            addData(regionChart, data.total.date, pair);
+
+            addData(regionChart, country[1].date, pair);
         })
-    }
+    })
 
 }
 

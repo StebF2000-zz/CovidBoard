@@ -71,7 +71,7 @@ function addData(chart, label, data) {
 
 // Getting JSON data
 async function getAPI(date) {
-    const API_URL = 'https://api.covid19tracking.narrativa.com/api/'
+    const API_URL = 'https://api.covid19tracking.narrativa.com/api/';
     return fetch(API_URL + date)
         .then(res => res.json());
 }
@@ -96,7 +96,6 @@ async function getlastweek() {
 
     for (let i = 0; i < days.length; i++) {
         const data = await getAPI(days[i]);
-
         const pair = {
             'Positives': data.total.today_new_confirmed,
             'Deaths': data.total.today_new_deaths,
