@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Essential rendering -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Miguel Esteban and Bootstrap contributors">
+
+    <!-- Tab display info -->
+    <title>Dashboard</title>
+    <link rel="icon" href="../res/favicon.svg">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/dashboard.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">COVID-19 Dashboard</a>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="sidebar-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">
+                            <span data-feather="slack"></span>
+                            World Wide <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="france.html">
+                            France
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="germany.html">
+                            Germany
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="greece.html">
+                            Greece
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="italy.html">
+                            Italy
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="portugal.html">
+                            Portugal
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="spain.html">
+                            Spain
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="USA.html">
+                            United States
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Last week confirmed cases</h1>
+            </div>
+
+            <canvas class="my-4 w-100" id="region-chart" width="900" height="380"></canvas>
+
+            <h2>Total confirmed cases by region</h2>
+            <div class="table-responsive">
+                <table id="tab1" class="table table-striped table-sm table-text-center">
+                </table>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="../js/chart.js"></script>
+<script src="../js/dashboard-region.js" class="Portugal"></script>
+<script src="../js/table-region.js" class="Portugal"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
